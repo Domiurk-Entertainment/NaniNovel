@@ -1,0 +1,69 @@
+@back Home
+@char Player.Idle
+@goto .Talking if:"angryNPC1 || angryNPC2"
+Player: ...
+@hideChars
+@hidePrinter 
+@goto MainMap
+@stop
+
+# Talking
+@char NPC1
+@char NPC2
+@if angryNPC1
+NPC1: I`m  not satisfied
+@elseIf angryNPC2
+NPC2: I`m  not satisfied
+@elseIf "angryNPC1 && angryNPC2"
+NPC1: I`m  not satisfied
+NPC2: Neither am I
+@endIf
+@stop
+@goto MainMap
+# AddQuest
+@back Home
+@set nextLocation=""
+@char Player.Idle
+@char NPC1.Idle
+Player: Hello.
+NPC1: Hi
+@set QuestDescription="Go to Park and talk with Jody"
+@showUI Quest
+@hidePrinter 
+@hideChars
+@set nextLocation="Location2.MiniGame"
+@goto MainMap
+@stop
+
+# AfterLocation2
+@back Home
+@set nextLocation=""
+@char NPC1
+@char NPC2
+@char Player
+
+NPC1: Talk
+NPC2: Talk
+Player: Choice who takes this item.
+@choice "Give NPC1" goto:.GiveNPC1
+@choice "Give NPC2" goto:.GiveNPC2
+@choice "Give Myself" goto:.GivePlayer
+@hidePrinter
+@stop
+
+# GiveNPC1
+@char NPC1.Angry
+@set angryNPC1=true
+@goto .Talking
+
+# GiveNPC2
+@char NPC2.Angry
+@set angryNPC2=true
+@goto .Talking
+
+# GivePlayer
+@char NPC1.Angry
+@char NPC2.Angry
+@set angryNPC1=true
+@set angryNPC2=true
+@goto .Talking

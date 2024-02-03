@@ -1,0 +1,41 @@
+@back Park
+@char Player.Idle
+Player: ...
+@hideChars
+@hidePrinter 
+@goto MainMap
+@stop
+
+# AfterUnlockLocation3
+@set nextLocation=""
+@back Park
+@char Player
+Player: Talk
+Player: Talk
+@hidePrinter 
+@set QuestDescription="Go to Home"
+@hideChars
+@set nextLocation="Location1.AfterLocation2"
+@goto MainMap
+@stop
+
+# MiniGame
+@set nextLocation=""
+@back Park
+@char NPC2
+@char Player
+NPC2: Talk
+Player: Talk
+; Start System Operation
+@set QuestDescription="Play in game"
+System: Start miniGame
+System: End miniGame
+; End System Operation
+NPC2: Talk
+Player: Talk
+@set QuestDescription="Go to Cemetery"
+@set nextLocation="Location3.UnlockLocation"
+@hidePrinter 
+@hideChars
+@goto MainMap
+@stop

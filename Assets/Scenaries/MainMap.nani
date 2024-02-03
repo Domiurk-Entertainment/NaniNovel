@@ -1,0 +1,30 @@
+@back MainMap
+@goto .Start if:!start
+@goto .Choices
+
+# Choices
+@choice Home pos:-700,-250,0 handler:ButtonArea button:Buttons/HomeUI goto:.TryLocation1
+@choice Park pos:-125,55,0 handler:ButtonArea button:Buttons/ParkUI goto:.TryLocation2
+@choice Cemetery pos:850,125,0 handler:ButtonArea button:Buttons/CemeteryUI goto:.TryLocation3
+@stop
+
+# Start
+@set start=true
+@input G_PlayerName summary:"Please write your name."
+@stop
+@goto Location1.AddQuest
+@stop
+
+# TryLocation1
+@goto Location1.AfterLocation2 if:nextLocation=="Location1.AfterLocation2"
+@goto Location1
+
+# TryLocation2
+@goto Location2.MiniGame if:nextLocation=="Location2.MiniGame"
+@goto Location2.AfterUnlockLocation3 if:nextLocation=="Location2.AfterUnlockLocation3"
+@goto Location2
+
+# TryLocation3
+@goto Location3.UnlockLocation if:nextLocation=="Location3.UnlockLocation"
+@goto Location3
+@goto .Choices

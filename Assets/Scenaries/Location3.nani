@@ -1,0 +1,22 @@
+@back Cemetery
+@char Player.Idle
+Player: ...
+@hideChars
+@hidePrinter 
+@goto MainMap
+@stop
+
+# UnlockLocation
+@back Cemetery
+@set nextLocation=""
+@char Unknow
+@char Player
+Player: Talk
+Unknow: Talk
+@set QuestDescription="Go to Park"
+@hidePrinter 
+@hideChars
+@set nextLocation="Location2.AfterUnlockLocation3"
+@set unlockLocation3=false
+@choice "Back to Map" goto:MainMap
+@stop
