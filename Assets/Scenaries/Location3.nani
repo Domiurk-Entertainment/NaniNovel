@@ -18,5 +18,5 @@ Unknow: Talk
 @hideChars
 @set nextLocation="Location2.AfterUnlockLocation3"
 @set unlockLocation3=false
-@choice "Back to Map" goto:MainMap
+@goto MainMap
 @stop

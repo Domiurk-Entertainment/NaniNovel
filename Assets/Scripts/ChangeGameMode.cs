@@ -4,13 +4,12 @@ using UnityEngine;
 [CommandAlias("changeGM")]
 public class ChangeGameMode : Command
 {
-    [ParameterAlias(NamelessParameterAlias)]
-    public BooleanParameter OnNovel;
     [ParameterAlias("script")] public StringParameter ScriptName;
     [ParameterAlias("cameraName")] public StringParameter CameraName = "MainCamera";
 
     public override async UniTask ExecuteAsync(AsyncToken asyncToken = default)
     {
+        var OnNovel = Assigned(ScriptName);
         // 2. Switch cameras.
         var advCamera = GameObject.Find(CameraName).GetComponent<Camera>();
         var naniCamera = Engine.GetService<ICameraManager>().Camera;

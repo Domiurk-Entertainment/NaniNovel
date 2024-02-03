@@ -1,25 +1,12 @@
 @back Home
+@goto .AngryNPC If:angryNPC1
 @char Player.Idle
-@goto .Talking if:"angryNPC1 || angryNPC2"
 Player: ...
 @hideChars
 @hidePrinter 
 @goto MainMap
 @stop
 
-# Talking
-@char NPC1
-@char NPC2
-@if angryNPC1
-NPC1: I`m  not satisfied
-@elseIf angryNPC2
-NPC2: I`m  not satisfied
-@elseIf "angryNPC1 && angryNPC2"
-NPC1: I`m  not satisfied
-NPC2: Neither am I
-@endIf
-@stop
-@goto MainMap
 # AddQuest
 @back Home
 @set nextLocation=""
@@ -38,9 +25,9 @@ NPC1: Hi
 # AfterLocation2
 @back Home
 @set nextLocation=""
+@char Player
 @char NPC1
 @char NPC2
-@char Player
 
 NPC1: Talk
 NPC2: Talk
@@ -54,16 +41,29 @@ Player: Choice who takes this item.
 # GiveNPC1
 @char NPC1.Angry
 @set angryNPC1=true
-@goto .Talking
+@hideChars
+@hidePrinter
+@goto MainMap
 
 # GiveNPC2
 @char NPC2.Angry
 @set angryNPC2=true
-@goto .Talking
+@hideChars
+@hidePrinter
+@goto MainMap
 
 # GivePlayer
-@char NPC1.Angry
-@char NPC2.Angry
 @set angryNPC1=true
 @set angryNPC2=true
-@goto .Talking
+@hideChars
+@hidePrinter
+@goto MainMap
+
+# AngryNPC
+@char Player
+@char NPC1.Angry
+NPC1: I'm not satisfied
+Player: Sorry but i want it...
+@hidePrinter
+@hideChars
+@goto MainMap

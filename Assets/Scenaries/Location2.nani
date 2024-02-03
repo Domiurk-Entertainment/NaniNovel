@@ -1,4 +1,5 @@
 @back Park
+@goto .AngryNPC If:angryNPC2
 @char Player.Idle
 Player: ...
 @hideChars
@@ -39,3 +40,12 @@ Player: Talk
 @hideChars
 @goto MainMap
 @stop
+
+# AngryNPC
+@char Player
+@char NPC2.Angry
+NPC2: I'm not satisfied
+Player: Sorry but i want it...
+@hideChars
+@hidePrinter
+@goto MainMap

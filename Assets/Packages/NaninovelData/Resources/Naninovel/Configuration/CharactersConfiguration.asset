@@ -137,7 +137,7 @@ MonoBehaviour:
         y: 0
         width: 1
         height: 1
-      BakedLookDirection: 2
+      BakedLookDirection: 1
       DisplayName: '{G_PlayerName}'
       UseCharacterColor: 0
       NameColor: {r: 1, g: 1, b: 1, a: 1}
