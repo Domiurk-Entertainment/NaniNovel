@@ -47,11 +47,15 @@ public class MiniGameStarter : MonoBehaviour
 
     public void SaveLog(string value)
     {
+        var manageUI = Engine.GetService<UIManager>();
+
         if(!string.IsNullOrEmpty(lastLog)){
-            var manageUI = Engine.GetService<UIManager>();
             manageUI.GetUI<BacklogPanel>().AddMessage($"Quest Completed: {lastLog}");
         }
 
+        if(!string.IsNullOrEmpty(value))
+            manageUI.GetUI<BacklogPanel>().AddMessage($"Quest Received: {value}");
+        
         lastLog = value;
     }
 
