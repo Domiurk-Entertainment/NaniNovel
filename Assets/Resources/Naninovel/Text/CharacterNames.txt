@@ -1,4 +1,4 @@
 NPC1: Fred
 NPC2: Jody
 Player: {G_PlayerName}
-Unknow: 
+Unknow: Unknow

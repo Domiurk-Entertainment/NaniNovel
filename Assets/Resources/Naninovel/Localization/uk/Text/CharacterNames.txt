@@ -3,4 +3,4 @@
 NPC1: Фред
 NPC2: Джуді
 Player: {G_PlayerName}
-Unknow: Незнйомець
+Unknow: Незнайомець
