@@ -1,0 +1,12 @@
+; English <en> to Ukrainian <uk> localization document for `Location3` naninovel script
+
+# 48030d2b
+; Player: ...
+
+# 9456e91a
+; Player: Talk
+Player: Говорить
+
+# 91a20d23
+; Unknow: Talk
+Unknow: Говорить

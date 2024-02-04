@@ -1,0 +1,52 @@
+; English <en> to Ukrainian <uk> localization document for `Location1` naninovel script
+
+# 48030d2b
+; Player: ...
+
+# 5a90643e
+; Player: Hello.
+Player: Привіт.
+
+# ac1775ca
+; NPC1: Hi
+NPC1: Ну привіт..
+
+# d8523680
+; NPC1: Talk
+NPC1: Говорить
+
+# 98cec7c9
+; NPC2: Talk
+NPC2: Говорить
+
+# 2331bc81
+; Player: Choice who takes this item.
+Player: Вибери кому достанеться предмет.
+
+# 81135dcb
+; @choice "Give NPC1" goto:.GiveNPC1
+@choice "Дати Фреду" goto:.GiveNPC1
+
+# 9109c094
+; @choice "Give NPC2" goto:.GiveNPC2
+@choice "Дати Джуді" goto:.GiveNPC2
+
+# 8a364053
+; @choice "Give Myself" goto:.GivePlayer
+@choice "Забрати собі" goto:.GivePlayer
+
+# 300b742f
+; NPC1: I'm not satisfied
+NPC1: Я не задоволений
+
+# 2874d8ef
+; Player: Sorry but i want it...
+Player: Вибачай але я хочу цього...
+
+# 1962e947
+; NPC1: Thank you. I`m seriously thanks.
+NPC1: Дякую. Я серйозно вдячний.
+
+# e6293143
+; Player: You are welcome)
+Player: Будь ласка)

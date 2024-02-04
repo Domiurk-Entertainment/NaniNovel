@@ -1,0 +1,6 @@
+; English <en> to Ukrainian <uk> localization document for `CharacterNames` managed text document
+
+NPC1: Фред
+NPC2: Джуді
+Player: {G_PlayerName}
+Unknow: Незнйомець

@@ -1,0 +1,44 @@
+; English <en> to Ukrainian <uk> localization document for `Location2` naninovel script
+
+# 48030d2b
+; Player: ...
+
+# 9456e91a
+; Player: Talk
+Player: Говорить
+
+# 9456e91a
+; Player: Talk
+Player: Говорить
+
+# 98cec7c9
+; NPC2: Talk
+NPC2: Говорить
+
+# 9456e91a
+; Player: Talk
+Player: Говорить
+
+# 98cec7c9
+; NPC2: Talk
+NPC2: Говорить
+
+# 9456e91a
+; Player: Talk
+Player: Говорить
+
+# 3c255dfe
+; NPC2: I'm not satisfied
+NPC2: Я не задоволена
+
+# 2874d8ef
+; Player: Sorry but i want it...
+Player: Вибачай але я хочу цього...
+
+# de5d4c37
+; NPC2: I`m happy. Thank for this item.
+NPC2: Я щасливий. Дякую за цю річ.
+
+# e6293143
+; Player: You are welcome)
+Player: Будь ласка, ласкаво просимо)
