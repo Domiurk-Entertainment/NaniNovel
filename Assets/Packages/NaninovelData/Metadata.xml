@@ -464,6 +464,14 @@
         &lt;Path&gt;CemeteryUI&lt;/Path&gt;
         &lt;Type&gt;Unlockables&lt;/Type&gt;
       &lt;/Resource&gt;
+      &lt;Resource&gt;
+        &lt;Path&gt;Angry&lt;/Path&gt;
+        &lt;Type&gt;Characters/NPC1&lt;/Type&gt;
+      &lt;/Resource&gt;
+      &lt;Resource&gt;
+        &lt;Path&gt;Angry&lt;/Path&gt;
+        &lt;Type&gt;Characters/NPC2&lt;/Type&gt;
+      &lt;/Resource&gt;
     &lt;/Resources&gt;
     &lt;Constants /&gt;
     &lt;Variables&gt;

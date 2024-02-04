@@ -61,10 +61,10 @@ SettingsMenu.VolumeEffects: Гучність Ефектів:
 SettingsMenu.VolumeMaster: Основна Гучність:
 SettingsMenu.VolumeMusic: Гучність музики:
 SettingsMenu.VolumeVoice: Гучність:
-TitleMenu.CGGallery: CG ГАЛЕРЕЯ
-TitleMenu.Continue: ПРОДОВЖИТИ
+TitleMenu.CGGallery: CG Галерея
+TitleMenu.Continue: Продовжити
 TitleMenu.Exit: Вийти
-TitleMenu.ExternalScripts: ЗОВНІШНІ СКРИПТИ
+TitleMenu.ExternalScripts: Зовнішні Скрипти
 TitleMenu.NewGame: Нова Гра
 TitleMenu.Settings: Налаштування
 TitleMenu.Tips: Підказки

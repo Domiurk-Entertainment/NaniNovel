@@ -45,8 +45,8 @@ public class ChangeGameMode : Command
             foreach(IManagedUI manage in uiManager.GetManagedUIs())
                 manage.Visible = false;
 
-            foreach(IActor actor in actorManager.GetAllActors())
-                actor.Visible = false;
+            // foreach(IActor actor in actorManager.GetAllActors())
+                // actor.Visible = false;
 
             if(Save.HasValue && customVariableManager.VariableExists(Save.Value)){
                 saveVariable = new SavingVariable(Save.Value, customVariableManager.GetVariableValue(Save.Value));

@@ -2,15 +2,15 @@
 
 # d0e5a940
 ; @choice Home button:Buttons/HomeUI pos:-700,-250,0 handler:ButtonArea goto:.TryLocation1
-@choice Дім button:Buttons/HomeUI pos:-700,-250,0 handler:ButtonArea goto:.TryLocation1
+; @choice Дім button:Buttons/HomeUI pos:-700,-250,0 handler:ButtonArea goto:.TryLocation1
 
 # 25cb6af1
 ; @choice Park button:Buttons/ParkUI pos:-125,55,0 handler:ButtonArea goto:.TryLocation2
-@choice Парк button:Buttons/ParkUI pos:-125,55,0 handler:ButtonArea goto:.TryLocation2
+; @choice Парк button:Buttons/ParkUI pos:-125,55,0 handler:ButtonArea goto:.TryLocation2
 
 # f3cbdd7e
 ; @choice Cemetery button:Buttons/CemeteryUI pos:850,125,0 handler:ButtonArea goto:.TryLocation3
-@choice Цвинтар button:Buttons/CemeteryUI pos:850,125,0 handler:ButtonArea goto:.TryLocation3
+; @choice Цвинтар button:Buttons/CemeteryUI pos:850,125,0 handler:ButtonArea goto:.TryLocation3
 
 # 6a94e2f2
 ; @input G_PlayerName summary:"Please write your name."
