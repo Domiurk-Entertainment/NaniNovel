@@ -1,5 +1,5 @@
 @back Home
-@goto .AngryNPC If:angryNPC1
+@goto .AngryNPC if:"angryNPC1 || angryNPC2"
 @char Player.Idle
 Player: ...
 @hideChars
@@ -14,7 +14,7 @@ Player: ...
 @char NPC1.Idle
 Player: Hello.
 NPC1: Hi
-@set QuestDescription="Go to Park and talk with Jody"
+@set "QuestDescription=\"Go to Park and talk with Jody\""
 @showUI Quest
 @hidePrinter 
 @hideChars
@@ -25,6 +25,7 @@ NPC1: Hi
 # AfterLocation2
 @back Home
 @set nextLocation=""
+@hideUI Quest
 @char Player
 @char NPC1
 @char NPC2
@@ -35,35 +36,39 @@ Player: Choice who takes this item.
 @choice "Give NPC1" goto:.GiveNPC1
 @choice "Give NPC2" goto:.GiveNPC2
 @choice "Give Myself" goto:.GivePlayer
-@hidePrinter
+@hidePrinter 
 @stop
 
 # GiveNPC1
-@char NPC1.Angry
-@set angryNPC1=true
+@set angryNPC2=true
 @hideChars
-@hidePrinter
+@hidePrinter 
 @goto MainMap
 
 # GiveNPC2
-@char NPC2.Angry
-@set angryNPC2=true
+@set angryNPC1=true
 @hideChars
-@hidePrinter
+@hidePrinter 
 @goto MainMap
 
 # GivePlayer
 @set angryNPC1=true
 @set angryNPC2=true
 @hideChars
-@hidePrinter
+@hidePrinter 
 @goto MainMap
 
 # AngryNPC
 @char Player
-@char NPC1.Angry
+@if angryNPC1
+@char NPC1.Angry avatar:NPC1/Angry
 NPC1: I'm not satisfied
 Player: Sorry but i want it...
-@hidePrinter
+@else
+@char NPC1 avatar:NPC1/Idle
+NPC1: Thank you. I`m seriously thanks.
+Player: You are welcome)
+@endIf
+@hidePrinter 
 @hideChars
 @goto MainMap

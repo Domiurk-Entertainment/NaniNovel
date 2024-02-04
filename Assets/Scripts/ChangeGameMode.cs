@@ -1,35 +1,75 @@
 using Naninovel;
+using Naninovel.UI;
+using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Experimental.Audio;
+using Object = UnityEngine.Object;
 
 [CommandAlias("changeGM")]
 public class ChangeGameMode : Command
 {
+    private static SavingVariable saveVariable;
+
     [ParameterAlias("script")] public StringParameter ScriptName;
-    [ParameterAlias("cameraName")] public StringParameter CameraName = "MainCamera";
+    [ParameterAlias("label")] public StringParameter Label;
+    [ParameterAlias("save")] public StringParameter Save;
 
     public override async UniTask ExecuteAsync(AsyncToken asyncToken = default)
     {
-        var OnNovel = Assigned(ScriptName);
-        // 2. Switch cameras.
-        var advCamera = GameObject.Find(CameraName).GetComponent<Camera>();
-        var naniCamera = Engine.GetService<ICameraManager>().Camera;
-        var inputManager = Engine.GetService<IInputManager>();
-        var scriptPlayer = Engine.GetService<IScriptPlayer>();
-        var stateManager = Engine.GetService<IStateManager>();
+        bool novelEnable = Assigned(ScriptName);
 
-        inputManager.ProcessInput = OnNovel;
-        advCamera.enabled = !OnNovel;
-        naniCamera.enabled = OnNovel;
+        Camera naniCamera = Engine.GetService<ICameraManager>().Camera;
+        IInputManager inputManager = Engine.GetService<IInputManager>();
+        IScriptPlayer scriptPlayer = Engine.GetService<IScriptPlayer>();
+        ICustomVariableManager customVariableManager = Engine.GetService<ICustomVariableManager>();
 
-        if(OnNovel){ // On Novel (Novel = true)
-            if(Assigned(ScriptName)){
-                await scriptPlayer.PreloadAndPlayAsync(ScriptName);
+        inputManager.ProcessInput = novelEnable;
+        naniCamera.enabled = novelEnable;
+
+        if(novelEnable){
+            if(!SavingVariable.IsNull(saveVariable))
+                customVariableManager.SetVariableValue(saveVariable.Name,saveVariable.Value);
+
+            if(ScriptName.HasValue)
+                await scriptPlayer.PreloadAndPlayAsync(ScriptName, label: Label);
+        }
+        else{
+            IUIManager uiManager = Engine.GetService<IUIManager>();
+            IActorManager actorManager = Engine.GetService<IActorManager>();
+            ICharacterManager characterManager = Engine.GetService<ICharacterManager>();
+
+            foreach(ICharacterActor character in characterManager.GetAllActors())
+                character.Visible = false;
+
+            foreach(IManagedUI manage in uiManager.GetManagedUIs())
+                manage.Visible = false;
+
+            foreach(IActor actor in actorManager.GetAllActors())
+                actor.Visible = false;
+
+            if(Save.HasValue && customVariableManager.VariableExists(Save.Value)){
+                saveVariable = new SavingVariable(Save.Value, customVariableManager.GetVariableValue(Save.Value));
             }
-        }
-        else{ // Off Novel  (Novel = false)
-            scriptPlayer.Stop();
 
-            await stateManager.ResetStateAsync();
+            MiniGameStarter starter = Object.FindObjectOfType<MiniGameStarter>();
+            scriptPlayer.Stop();
+            starter.StartGame();
         }
+    }
+
+    private readonly struct SavingVariable
+    {
+        public readonly string Name;
+        public readonly string Value;
+
+        public SavingVariable(string name, string value)
+        {
+            Name = name;
+            Value = value;
+        }
+
+        public static bool IsNull(SavingVariable variable)
+            => string.IsNullOrEmpty(variable.Name) && string.IsNullOrEmpty(variable.Value);
     }
 }

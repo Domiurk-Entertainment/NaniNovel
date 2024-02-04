@@ -1,5 +1,5 @@
 @back Park
-@goto .AngryNPC If:angryNPC2
+@goto .AngryNPC if:"angryNPC2 || angryNPC1"
 @char Player.Idle
 Player: ...
 @hideChars
@@ -14,7 +14,7 @@ Player: ...
 Player: Talk
 Player: Talk
 @hidePrinter 
-@set QuestDescription="Go to Home"
+@set "QuestDescription=\"Go to Home\""
 @hideChars
 @set nextLocation="Location1.AfterLocation2"
 @goto MainMap
@@ -22,16 +22,19 @@ Player: Talk
 
 # MiniGame
 @set nextLocation=""
+@set QuestDescription="Play Game"
 @back Park
 @char NPC2
 @char Player
 NPC2: Talk
 Player: Talk
-; Start System Operation
-@set QuestDescription="Play in game"
-System: Start miniGame
-System: End miniGame
-; End System Operation
+@changeGM save:start
+# AfterMiniGame
+@back Park
+@showUI Quest
+@set QuestDescription="Talk with Jody"
+@char NPC2
+@char Player
 NPC2: Talk
 Player: Talk
 @set QuestDescription="Go to Cemetery"
@@ -43,9 +46,15 @@ Player: Talk
 
 # AngryNPC
 @char Player
-@char NPC2.Angry
+@if angryNPC2
+@char NPC2.Angry avatar:NPC2/Angry
 NPC2: I'm not satisfied
 Player: Sorry but i want it...
+@else
+@char NPC2 avatar:NPC2/Idle
+NPC2: I`m happy. Thank for this item.
+Player: You are welcome)
+@endIf
 @hideChars
-@hidePrinter
+@hidePrinter 
 @goto MainMap

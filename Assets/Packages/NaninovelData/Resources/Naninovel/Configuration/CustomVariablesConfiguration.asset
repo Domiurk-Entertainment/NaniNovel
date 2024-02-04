@@ -24,4 +24,4 @@ MonoBehaviour:
   - name: angryNPC2
     value: false
   - name: QuestDescription
-    value: '"Description Mission"'
+    value: '""'

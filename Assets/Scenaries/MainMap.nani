@@ -1,6 +1,4 @@
 @back MainMap
-@changeGM cameraName:MainCamera
-@stop
 @goto .Start if:!start
 @goto .Choices
 

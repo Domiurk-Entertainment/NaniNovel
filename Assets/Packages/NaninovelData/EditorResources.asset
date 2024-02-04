@@ -261,3 +261,11 @@ MonoBehaviour:
     - name: CemeteryUI
       pathPrefix: Unlockables
       guid: 9cca0fb5a075dd7439c23477b92cc988
+  - Id: CharacterAvatars
+    Resources:
+    - name: NPC1/Angry
+      pathPrefix: CharacterAvatars
+      guid: 959d26b241123d04bbb19c6f824d0e97
+    - name: NPC2/Angry
+      pathPrefix: CharacterAvatars
+      guid: 65cdc5f4b9dc14542ba8dfab4e7b1bb4
