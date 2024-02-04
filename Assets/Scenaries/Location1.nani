@@ -8,10 +8,11 @@ Player: ...
 @stop
 
 # AddQuest
+@purgeRollback
 @back Home
 @set nextLocation=""
-@char Player.Idle
-@char NPC1.Idle
+@char NPC1
+@char Player
 Player: Hello.
 NPC1: Hi
 @set "QuestDescription=\"Go to Park and talk with Jody\""
@@ -23,12 +24,13 @@ NPC1: Hi
 @stop
 
 # AfterLocation2
+@purgeRollback
 @back Home
 @set nextLocation=""
 @hideUI Quest
-@char Player
 @char NPC1
 @char NPC2
+@char Player
 
 NPC1: Talk
 NPC2: Talk
@@ -61,11 +63,11 @@ Player: Choice who takes this item.
 # AngryNPC
 @char Player
 @if angryNPC1
-@char NPC1.Angry avatar:NPC1/Angry
+@char NPC1.Angry
 NPC1: I'm not satisfied
 Player: Sorry but i want it...
 @else
-@char NPC1 avatar:NPC1/Idle
+@char NPC1.Happy
 NPC1: Thank you. I`m seriously thanks.
 Player: You are welcome)
 @endIf

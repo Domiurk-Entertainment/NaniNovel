@@ -7,6 +7,7 @@ Player: ...
 @stop
 
 # UnlockLocation
+@purgeRollback
 @back Cemetery
 @set nextLocation=""
 @char Unknow

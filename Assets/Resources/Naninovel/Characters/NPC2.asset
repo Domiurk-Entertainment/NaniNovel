@@ -54,18 +54,7 @@ MonoBehaviour:
     MessageSoundPlayback: 0
     VoiceSource: {fileID: 0}
     LinkedPrinter: 
-    Poses:
-    - name: Angry
-      actorState:
-        appearance: 
-        visible: 0
-        position: {x: 0, y: 0, z: 0}
-        rotation: {x: 0, y: 0, z: 0, w: 0}
-        scale: {x: 0, y: 0, z: 0}
-        tintColor: {r: 1, g: 0.51320755, b: 0.51320755, a: 1}
-        lookDirection: 0
-      overriddenProperties:
-      - tintColor
+    Poses: []
   references:
     version: 2
     RefIds:

@@ -224,23 +224,29 @@ MonoBehaviour:
     Resources:
     - name: Idle
       pathPrefix: Characters/Player
-      guid: 65e4617351507a8468ab8393d2269f46
+      guid: f9d7b404976092c4ab410aec5da11a7c
   - Id: Characters/2e40be73-d378-4c3f-871b-7ffbe0f46585
     Resources:
     - name: Idle
       pathPrefix: Characters/NPC2
-      guid: 6d4f3294c50a47c4eb81b60f23a0424b
+      guid: 2e7db6350be33734fac79191091e0782
     - name: Angry
       pathPrefix: Characters/NPC2
-      guid: 65cdc5f4b9dc14542ba8dfab4e7b1bb4
+      guid: 5fc63d4a82dfa6949a044e76a9601eac
+    - name: Happy
+      pathPrefix: Characters/NPC2
+      guid: 449ad9912b47dfe4d9fb1063fa195b7a
   - Id: Characters/badd2a8d-fa5c-4649-b951-c9f0cc63357a
     Resources:
     - name: Idle
       pathPrefix: Characters/NPC1
-      guid: 4c1dad5f353e8ad419852c7c97885f01
+      guid: 0681851add1819c4f9dfd7db3746a016
     - name: Angry
       pathPrefix: Characters/NPC1
-      guid: 959d26b241123d04bbb19c6f824d0e97
+      guid: b9619c6772446ba429e4bef5193bcb7d
+    - name: Happy
+      pathPrefix: Characters/NPC1
+      guid: 5ad7f7ad265159841ab5cb6398693164
   - Id: Backgrounds/95be6474-a79e-4c61-a3e3-152cc83f2c94
     Resources:
     - name: Home

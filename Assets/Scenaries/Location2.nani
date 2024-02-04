@@ -8,6 +8,7 @@ Player: ...
 @stop
 
 # AfterUnlockLocation3
+@purgeRollback
 @set nextLocation=""
 @back Park
 @char Player
@@ -21,8 +22,9 @@ Player: Talk
 @stop
 
 # MiniGame
+@purgeRollback
 @set nextLocation=""
-@set QuestDescription="Play Game"
+@set "QuestDescription=\"Play Game\""
 @back Park
 @char NPC2
 @char Player
@@ -30,14 +32,15 @@ NPC2: Talk
 Player: Talk
 @changeGM save:start
 # AfterMiniGame
+@purgeRollback
 @back Park
 @showUI Quest
-@set QuestDescription="Talk with Jody"
+@set "QuestDescription=\"Talk with Jody\""
 @char NPC2
 @char Player
 NPC2: Talk
 Player: Talk
-@set QuestDescription="Go to Cemetery"
+@set "QuestDescription=\"Go to Cemetery\""
 @set nextLocation="Location3.UnlockLocation"
 @hidePrinter 
 @hideChars
@@ -45,13 +48,14 @@ Player: Talk
 @stop
 
 # AngryNPC
+@purgeRollback
 @char Player
 @if angryNPC2
-@char NPC2.Angry avatar:NPC2/Angry
+@char NPC2.Angry
 NPC2: I'm not satisfied
 Player: Sorry but i want it...
 @else
-@char NPC2 avatar:NPC2/Idle
+@char NPC2.Happy
 NPC2: I`m happy. Thank for this item.
 Player: You are welcome)
 @endIf
